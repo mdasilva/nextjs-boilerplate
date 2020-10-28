@@ -46,6 +46,13 @@ const nextJSConfig = {
   experimental: {
     modern: true
   },
+  images: {
+    deviceSizes: [375, 768, 1024, 1440, 1920],
+    iconSizes: [],
+    domains: [],
+    path: '/_next/image',
+    loader: 'default'
+  },
   webpack: function (config, options) {
     const moduleSassRule = config.module.rules[1].oneOf.find(
       (rule) => rule.test.toString() === /\.module\.(scss|sass)$/.toString()
