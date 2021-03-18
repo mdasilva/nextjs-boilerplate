@@ -9,7 +9,7 @@ import Head from '../components/Head/Head';
 import { withRedux } from '../redux/withRedux';
 import { setLandingLoaded } from '../redux/modules/app';
 
-import NextImage from '../../examples/next-image/nextImage';
+import NextImage from '../../examples/next-image/NextImage';
 
 function Landing() {
   const containerRef = useRef();

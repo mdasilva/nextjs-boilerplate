@@ -4,12 +4,12 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import checkProps from '@jam3/react-check-extra-props';
 
-import styles from './nextImage.module.scss';
+import styles from './NextImage.module.scss';
 
-function nextImage({ className }) {
+function NextImage({ className }) {
   return (
-    <div className={classnames(styles.nextImage, className)}>
-      nextImage component
+    <div className={classnames(styles.NextImage, className)}>
+      NextImage component
       <div className={styles.imageBox}>
         <Image
           src="/assets/images/share-image.jpg"
@@ -30,10 +30,10 @@ function nextImage({ className }) {
   );
 }
 
-nextImage.propTypes = checkProps({
+NextImage.propTypes = checkProps({
   className: PropTypes.string
 });
 
-nextImage.defaultProps = {};
+NextImage.defaultProps = {};
 
-export default memo(nextImage);
+export default memo(NextImage);
