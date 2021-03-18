@@ -9,6 +9,8 @@ import Head from '../components/Head/Head';
 import { withRedux } from '../redux/withRedux';
 import { setLandingLoaded } from '../redux/modules/app';
 
+import NextImage from '../../examples/next-image/nextImage';
+
 function Landing() {
   const containerRef = useRef();
   const dispatch = useDispatch();
@@ -61,6 +63,7 @@ function Landing() {
           </li>
         </ul>
       </section>
+      <NextImage />
     </main>
   );
 }
