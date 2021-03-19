@@ -5,6 +5,7 @@ import { gsap } from 'gsap';
 import styles from './index.module.scss';
 
 import Head from '../components/Head/Head';
+import Image from '../components/Image/Image';
 
 import { setLandingLoaded } from '../redux/slices/app';
 
@@ -59,6 +60,8 @@ function Landing() {
             </a>
           </li>
         </ul>
+
+        <Image imageObj={{ file: 'office.jpg', alt: 'Jam3 Office.' }} />
       </section>
     </main>
   );
