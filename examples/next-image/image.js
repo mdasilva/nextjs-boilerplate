@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import checkProps from '@jam3/react-check-extra-props';
 
-import styles from './NextImage.module.scss';
+import styles from './image.module.scss';
 
 function NextImage({ className }) {
   return (
