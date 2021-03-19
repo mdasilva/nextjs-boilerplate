@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import dynamic from 'next/dynamic';
+import { Provider } from 'react-redux';
 import 'normalize.css';
 import 'default-passive-events';
 import 'focus-visible';
@@ -7,6 +8,8 @@ import 'focus-visible';
 import '../styles/global.scss';
 
 import Layout from '../components/Layout/Layout';
+
+import { store } from '../redux/index';
 
 import detect from '../utils/detect';
 
@@ -40,9 +43,11 @@ function App({ Component, pageProps }) {
   }
 
   return (
-    <Layout>
-      <Component {...pageProps} />
-    </Layout>
+    <Provider store={store}>
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
+    </Provider>
   );
 }
 

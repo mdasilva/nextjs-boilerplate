@@ -1,13 +1,15 @@
-import { createStore, applyMiddleware, combineReducers } from 'redux';
-import { composeWithDevTools } from 'redux-devtools-extension';
+import { configureStore } from '@reduxjs/toolkit';
+import { combineReducers } from 'redux';
 
-import appReducers from './modules/app';
+import app from './slices/app';
 
-const reducers = combineReducers({
-  // NOTE: add more reducers here
-  app: appReducers
+// NOTE: If you need to split your redux store just add it here
+const reducer = combineReducers({
+  app
 });
 
-export const initializeStore = (preloadedState) => {
-  return createStore(reducers, preloadedState, composeWithDevTools(applyMiddleware()));
-};
+export const store = configureStore({
+  // middleware: getDefaultMiddleware({ immutableCheck: false, serializableCheck: false }), // disabled only because the data in the state is too big
+  reducer,
+  devTools: process.env.NODE_ENV !== 'production'
+});

@@ -6,8 +6,7 @@ import styles from './index.module.scss';
 
 import Head from '../components/Head/Head';
 
-import { withRedux } from '../redux/withRedux';
-import { setLandingLoaded } from '../redux/modules/app';
+import { setLandingLoaded } from '../redux/slices/app';
 
 function Landing() {
   const containerRef = useRef();
@@ -65,4 +64,4 @@ function Landing() {
   );
 }
 
-export default withRedux(Landing);
+export default Landing;

@@ -5,8 +5,6 @@ import styles from '../index.module.scss';
 
 import Head from '../../components/Head/Head';
 
-import { withRedux } from '../../redux/withRedux';
-
 function About() {
   const appLoaded = useSelector((state) => state.app.loaded);
 
@@ -22,4 +20,4 @@ function About() {
   );
 }
 
-export default withRedux(About);
+export default About;
