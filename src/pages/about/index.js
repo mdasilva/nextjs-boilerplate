@@ -6,7 +6,7 @@ import styles from '../index.module.scss';
 import Head from '../../components/Head/Head';
 
 function About() {
-  const appLoaded = useSelector((state) => state.app.loaded);
+  const appLoaded = useSelector((state) => state.loaded);
 
   return (
     <main className="About">

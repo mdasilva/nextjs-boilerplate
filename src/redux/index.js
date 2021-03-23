@@ -1,15 +1,21 @@
-import { configureStore } from '@reduxjs/toolkit';
-import { combineReducers } from 'redux';
+import { configureStore, createSlice } from '@reduxjs/toolkit';
 
-import app from './slices/app';
-
-// NOTE: If you need to split your redux store just add it here
-const reducer = combineReducers({
-  app
+const appSlice = createSlice({
+  name: 'app',
+  initialState: {
+    loaded: false
+  },
+  reducers: {
+    setLandingLoaded(state, action) {
+      return { ...state, loaded: action.payload };
+    }
+  }
 });
+
+export const { setLandingLoaded } = appSlice.actions;
 
 export const store = configureStore({
   // middleware: getDefaultMiddleware({ immutableCheck: false, serializableCheck: false }), // disabled only because the data in the state is too big
-  reducer,
+  reducer: appSlice.reducer,
   devTools: process.env.NODE_ENV !== 'production'
 });

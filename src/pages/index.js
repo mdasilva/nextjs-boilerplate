@@ -6,7 +6,7 @@ import styles from './index.module.scss';
 
 import Head from '../components/Head/Head';
 
-import { setLandingLoaded } from '../redux/slices/app';
+import { setLandingLoaded } from '../redux/';
 
 function Landing() {
   const containerRef = useRef();
