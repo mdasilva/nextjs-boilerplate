@@ -9,7 +9,7 @@ import '../styles/global.scss';
 
 import Layout from '../components/Layout/Layout';
 
-import { store } from '../redux/index';
+import { store } from '../redux';
 
 import detect from '../utils/detect';
 

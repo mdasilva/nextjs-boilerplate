@@ -15,7 +15,5 @@ const appSlice = createSlice({
 export const { setLandingLoaded } = appSlice.actions;
 
 export const store = configureStore({
-  // middleware: getDefaultMiddleware({ immutableCheck: false, serializableCheck: false }), // disabled only because the data in the state is too big
-  reducer: appSlice.reducer,
-  devTools: process.env.NODE_ENV !== 'production'
+  reducer: appSlice.reducer
 });
