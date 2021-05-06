@@ -2,16 +2,19 @@
   type: serial
   tag: develop
   steps:
-  - name: ci
+  - name: integration
     type: parallel
     steps:
     - name: lint
       service: frontend-dev
       command: sh .codeship/linters.sh
+    - name: sast
+      service: njsscan-dev
+      command: -w /usr/src/app
     - name: build
       service: frontend-dev
       command: sh .codeship/artifact.sh
-  - name: cd
+  - name: deployment
     service: awsdeployment-dev
     command: sh ./usr/src/app/.codeship/deploy.sh
 
@@ -19,7 +22,7 @@
   type: serial
   tag: staging
   steps:
-  - name: ci
+  - name: integration
     type: parallel
     steps:
     - name: lint
@@ -28,7 +31,7 @@
     - name: build
       service: frontend-stage
       command: sh .codeship/artifact.sh
-  - name: cd
+  - name: deployment
     service: awsdeployment-stage
     command: sh ./usr/src/app/.codeship/deploy.sh
 
@@ -36,7 +39,7 @@
   type: serial
   tag: '^(master|main)$'
   steps:
-  - name: ci
+  - name: integration
     type: parallel
     steps:
     - name: lint
@@ -45,6 +48,6 @@
     - name: build
       service: frontend-prod
       command: sh .codeship/artifact.sh
-  - name: cd
+  - name: deployment
     service: awsdeployment-prod
     command: sh ./usr/src/app/.codeship/deploy.sh
