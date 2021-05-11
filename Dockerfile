@@ -8,7 +8,7 @@ WORKDIR /usr/src/app
 # Install dependencies
 COPY package-lock.json .
 COPY package.json .
-RUN npm ci --no-audit
+RUN npm ci
 
 # Copy source files
 COPY . .
