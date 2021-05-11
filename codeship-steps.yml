@@ -34,10 +34,11 @@
   - name: deployment
     service: awsdeployment-stage
     command: sh ./usr/src/app/.codeship/deploy.sh
-  - name: production
-    type: manual
-    tag: '^(master|main)$'
-    steps:
-    - name: deployment
-      service: awsdeployment-prod
-      command: sh ./usr/src/app/.codeship/deploy.sh
+
+- name: production
+  type: manual
+  tag: '^(master|main)$'
+  steps:
+  - name: deployment
+    service: awsdeployment-prod
+    command: sh ./usr/src/app/.codeship/deploy.sh

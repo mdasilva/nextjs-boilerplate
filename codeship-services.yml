@@ -63,5 +63,5 @@ awsdeployment-prod:
   - S3_ORIGIN_BUCKET=PLACEHOLDER_S3_BUCKET_NAME
   - DISTRIBUTION_ID=PLACEHOLDER_CLODUFRONT_DIST_ID
   volumes_from:
-  - frontend-prod
+  - frontend-stage
   cached: true
