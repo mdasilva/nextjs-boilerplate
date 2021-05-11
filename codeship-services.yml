@@ -32,12 +32,14 @@ frontend-stage:
     dockerfile: Dockerfile
   environment:
     CI_ENV: staging
-    NEXT_PUBLIC_WEBSITE_SITE_URL: https://PLACEHOLDER_WEBSITE_SITE_URL
+    NEXT_PUBLIC_WEBSITE_SITE_URL: https://d3729v2c0apmto.cloudfront.net
+  volumes:
+  - ./tmp/artifacts:/artifacts
   cached: true
 
 awsdeployment-stage:
   image: codeship/aws-deployment
-  encrypted_env_file: .env.codeship.stage.encrypted
+  encrypted_env_file: .env.codeship.dev.encrypted
   environment:
   - AWS_DEFAULT_REGION=us-east-1
   - S3_ORIGIN_BUCKET=PLACEHOLDER_S3_BUCKET_NAME
@@ -52,12 +54,14 @@ frontend-prod:
     dockerfile: Dockerfile
   environment:
     CI_ENV: production
-    NEXT_PUBLIC_WEBSITE_SITE_URL: https://PLACEHOLDER_WEBSITE_SITE_URL
+    NEXT_PUBLIC_WEBSITE_SITE_URL: https://d3729v2c0apmto.cloudfront.net
+  volumes:
+  - ./tmp/artifacts:/artifacts
   cached: true
 
 awsdeployment-prod:
   image: codeship/aws-deployment
-  encrypted_env_file: .env.codeship.prod.encrypted
+  encrypted_env_file: .env.codeship.dev.encrypted
   environment:
   - AWS_DEFAULT_REGION=us-east-1
   - S3_ORIGIN_BUCKET=PLACEHOLDER_S3_BUCKET_NAME
