@@ -34,20 +34,10 @@
   - name: deployment
     service: awsdeployment-stage
     command: sh ./usr/src/app/.codeship/deploy.sh
-
-- name: production
-  type: serial
-  tag: '^(master|main)$'
-  steps:
-  - name: integration
-    type: parallel
+  - name: production
+    type: manual
+    tag: '^(master|main)$'
     steps:
-    - name: lint
-      service: frontend-prod
-      command: sh .codeship/linters.sh
-    - name: build
-      service: frontend-prod
-      command: sh .codeship/artifact.sh
-  - name: deployment
-    service: awsdeployment-prod
-    command: sh ./usr/src/app/.codeship/deploy.sh
+    - name: deployment
+      service: awsdeployment-prod
+      command: sh ./usr/src/app/.codeship/deploy.sh
