@@ -25,9 +25,9 @@
   - name: integration
     type: parallel
     steps:
-    - name: lint
-      service: frontend-stage
-      command: sh .codeship/linters.sh
+#    - name: lint
+#      service: frontend-stage
+#      command: sh .codeship/linters.sh
     - name: build
       service: frontend-stage
       command: sh .codeship/artifact.sh
